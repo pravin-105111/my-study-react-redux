@@ -15,7 +15,7 @@ class SignIn extends Component {
             <form>
             <div className="App">
             <div>
-                <label>User Name</label>
+                <label>Username:</label>
                 <div>
                     <Field 
                     component="input"
@@ -26,7 +26,7 @@ class SignIn extends Component {
                 </div>
             </div>
             <div>
-                <label>Password</label>
+                <label>Password:</label>
                 <div>
                     <Field 
                     component="input"
