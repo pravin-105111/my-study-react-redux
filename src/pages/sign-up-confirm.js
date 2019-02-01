@@ -8,7 +8,7 @@ class SignUpConfirm extends Component {
     render() {
         return (
             <div className="App">
-            <p>Thank Yoy for Sign Up !</p>
+            <p>Thank You for Sign Up !</p>
             <p><a href="#" onClick={this.routeToSignIn}>Go Back to Login</a></p>
             </div>
         )
