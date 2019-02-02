@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
-import { getAllStates } from '../sign-up-reducer';
+import {formValueSelector} from 'redux-form';
+
+import { getAllStatesAndDistricts } from '../sign-up-reducer';
 import SignUpDetails from '../../components/sign-up-details';
 
+const selector = formValueSelector('signup');
 const mapStateToProps = state => {
     return {
-        gitData: state.signUp.gitData
+        statesAndCity: state.signUp.statesAndCity,
+        stateName: selector(state, 'stateName')
     };
 }
 
 const mapDispatchToProps = dispatch => ({
-    getAllStates: username => dispatch(getAllStates(username))
+    getAllStatesAndDistricts: () => dispatch(getAllStatesAndDistricts())
 })
 
 const signUpForm = connect(mapStateToProps, mapDispatchToProps)(SignUpDetails);

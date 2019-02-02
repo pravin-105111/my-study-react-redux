@@ -1,21 +1,54 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-export default class SignUpDetails extends Component {
+class SignUpDetails extends Component {
     componentDidMount() {
-        this.props.getAllStates('Pravin');
+        this.props.getAllStatesAndDistricts();
     }
-    routeToConfirm = () => {
-        this.props.history.push('/sign-up-confirm');
-    }
+
     render() {
-        let {gitData} = this.props;
-        console.log('gitData===',gitData);
-        let data1 = gitData && gitData.data.login;
-        console.log('aaaa', data1)
+        let { statesAndCity, routeToConfirm, stateName } = this.props;
+        console.log('gitData===', stateName);
+        let states = statesAndCity && statesAndCity.map(st => { return st.state });
+        console.log('state==', states);
+
+        let districts = stateName && statesAndCity && statesAndCity.filter(st=> st.state===stateName).map(st => { return st.districts });
+        
+        console.log('dist==', districts);
         return (
-            <div className="App"> 
-            <button onClick={this.routeToConfirm}>Sign Up</button>
+            <div className="App">
+                <div>
+                    <label>State:</label>
+                    <div>
+                        <Field
+                            component="select"
+                            name="stateName"
+                        >
+                        <option value="">Select a state...</option>
+                        {states && states.map(state => 
+                        <option value={state}>{state}</option>
+                        )}
+                        </Field>
+                    </div>
+                    <label>District:</label>
+                    <div>
+                        <Field
+                            component="select"
+                            name="district"
+                        >
+                        <option value="">Select a district...</option>
+                        {districts && districts[0].map(dist => 
+                        <option value={dist}>{dist}</option>
+                        )}
+                        </Field>
+                    </div>
+                </div>
+                <button onClick={routeToConfirm}>Sign Up</button>
             </div>
         )
     }
 }
+
+export default reduxForm({
+    form: 'signup'
+})(SignUpDetails);
