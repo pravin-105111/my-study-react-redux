@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import { reduxForm } from 'redux-form';
 
-import SignUpContainer from '../redux/container/sign-up-container';
+import AddressContainer from '../redux/container/address-container';
 
 class SignUp extends Component {
     routeToConfirm = () => {
@@ -9,9 +10,13 @@ class SignUp extends Component {
 
     render() {
         return (
-            <SignUpContainer 
+            <form>
+            <AddressContainer 
             routeToConfirm={this.routeToConfirm}/>
+            </form>
         )
     }
 }
-export default SignUp;
+export default reduxForm({
+    form: 'signup'
+})(SignUp);

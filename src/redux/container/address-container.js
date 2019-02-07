@@ -3,7 +3,7 @@ import {change} from 'redux-form';
 
 import { getAllStatesAndDistricts } from '../reducers/sign-up-reducer';
 import { getZipCityDetails } from '../reducers/address-reducer';
-import SignUpDetails from '../../components/sign-up-details';
+import Address from '../../components/address';
 
 const mapStateToProps = state => {
     return {
@@ -20,5 +20,5 @@ const mapDispatchToProps = dispatch => ({
     zipChanged: (key, value) => dispatch(change('signup', key, value))
 })
 
-const signUpForm = connect(mapStateToProps, mapDispatchToProps)(SignUpDetails);
-export default signUpForm;
+const addressForm = connect(mapStateToProps, mapDispatchToProps)(Address);
+export default addressForm;
