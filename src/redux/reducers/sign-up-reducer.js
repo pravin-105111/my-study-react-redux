@@ -6,9 +6,8 @@ export const GET_STATES_LIST_ERROR = 'GET_STATES_LIST_ERROR';
 
 export const getAllStatesAndDistricts = () => {
     return function getStates(dispatch) {
-        dispatch(fetchStateList())
+        dispatch(fetchStateList());
         const ROOT_URL = `https://raw.githubusercontent.com/sab99r/Indian-States-And-Districts/master/states-and-districts.json`;
-
         return axios({
             method: 'GET',
             url: ROOT_URL
