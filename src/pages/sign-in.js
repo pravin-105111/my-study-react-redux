@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { required, renderInputField } from '../components/form/pk-form';
 
 class SignIn extends Component {
     routeToInfo = () => {
@@ -14,32 +15,27 @@ class SignIn extends Component {
         return (
             <form>
                 <div className="App">
-                    <div>
-                        <label>Username:</label>
-                        <div>
-                            <Field
-                                component="input"
-                                name="username"
-                                type="text"
-                                placeholder="username"
-                            />
-                        </div>
+                    <div className="form-group">
+                        <Field
+                            component={renderInputField}
+                            name="username"
+                            type="text"
+                            label="Username"
+                        />
                     </div>
-                    <div>
-                        <label>Password:</label>
-                        <div>
-                            <Field
-                                component="input"
-                                name="password"
-                                type="password"
-                            />
-                        </div>
+                    <div className="form-group">
+                        <Field
+                            component={renderInputField}
+                            name="password"
+                            label="Password"
+                            type="password"
+                        />
                     </div>
-                    <div>
-                        <button onClick={this.routeToInfo}>Login</button>
+                    <div className="form-group">
+                        <button onClick={this.routeToInfo} className="btn btn-primary">Login</button>
                     </div>
-                    <div>
-                        <button onClick={this.routeToSignUp}>Sign Up</button>
+                    <div className="form-group">
+                        <button onClick={this.routeToSignUp} className="btn btn-primary">Sign Up</button>
                     </div>
                 </div>
             </form>
