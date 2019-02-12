@@ -10,7 +10,7 @@ const mapStateToProps = state => {
         statesAndCity: state.signUp.statesAndCity,
         locationState: state.address.zipCityList[0] && state.address.zipCityList[0].state_name,
         zipCode: state.address.zipCityList[0] && state.address.zipCityList[0].pincode,
-        city: state.address.zipCityList[0] && state.address.zipCityList[0].district,
+        city: state.address.zipCityList[0] && state.address.zipCityList[0].district
     };
 }
 

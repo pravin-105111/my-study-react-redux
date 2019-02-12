@@ -14,13 +14,14 @@ class SignIn extends Component {
     render() {
         return (
             <form>
-                <div className="App">
-                    <div className="form-group">
+                <div>
+                    <div className="col">
                         <Field
                             component={renderInputField}
                             name="username"
                             type="text"
                             label="Username"
+                            validate={required}
                         />
                     </div>
                     <div className="form-group">
@@ -29,6 +30,7 @@ class SignIn extends Component {
                             name="password"
                             label="Password"
                             type="password"
+                            validate={required}
                         />
                     </div>
                     <div className="form-group">

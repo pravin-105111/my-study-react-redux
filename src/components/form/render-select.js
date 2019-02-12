@@ -17,13 +17,18 @@ export default class RenderSelect extends Component {
 
     render() {
         const { selectedOption } = this.state;
-        let {option, label, meta: { touched, error, warning } } = this.props;
-
+        let {options, label, meta: { touched, error, warning } } = this.props;
+        console.log('state neme====',touched,error, label)
         return (
             <div>
                 <label>{label}</label>
                 <div>
-                    <Select value={selectedOption} onChange={this.handleChange} options={option} />
+                    <select>
+                    return <option>select--</option>
+                {options && options.map(st => {
+                   return <option value={st} >{st}</option>
+                })}
+                    </select>
                     {touched && ((error && <span className="text-danger">{error}</span>) || (warning && <span>{warning}</span>))}
                 </div>
             </div>

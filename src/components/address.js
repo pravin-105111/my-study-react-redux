@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
 import { required, renderInputField } from '../components/form/pk-form';
-import RenderSelect from '../components/form/render-select';
+//import RenderSelect from '../components/form/render-select';
 import { statesLists } from '../util/state-city-constant';
 
 class Address extends Component {
@@ -23,48 +23,62 @@ class Address extends Component {
     }
 
     render() {
-        let { zipCode, locationState, city, routeToConfirm } = this.props;
-        let isEnabled = zipCode && zipCode.length > 5 && locationState && city;
+        //let { zipCode, locationState, city } = this.props;
+        //let isEnabled = zipCode && zipCode.length > 5 && locationState && city;
 
         return (
-            <div className="App">
-                <Field name="username"
-                    className="form-group"
-                    type="text"
-                    component={renderInputField}
-                    label="Username"
-                    validate={required}
-                />
-                <Field
-                    className="form-group"
-                    component={RenderSelect}
-                    name="stateName"
-                    label="State"
-                    validate={required}
-                    option={statesLists}
-                >
-                </Field>
-                <Field
-                    className="form-group"
-                    component={renderInputField}
-                    name='district'
-                    type='text'
-                    label='District'
-                    validate={required} />
-                <Field
-                    className="form-group"
-                    component={renderInputField}
-                    name='zip'
-                    type='text'
-                    label='Zip Code'
-                    onChange={this.getZipDetails}
-                    validate={required}
-                />
-                <div className="form-group">
-                    <button onClick={routeToConfirm} className="btn btn-primary"
-                        disabled={!isEnabled}>Sign Up</button>
+            <div className="container">
+                <div className="row">
+                    <Field
+                        className="col"
+                        component={renderInputField}
+                        name='addressLin1'
+                        type='text'
+                        label='Street Line 1'
+                        onChange={this.getZipDetails}
+                        validate={required}
+                    />
+                    <Field
+                        className="col"
+                        component={renderInputField}
+                        name='addressLin2'
+                        type='text'
+                        label='Street Line 2'
+                        validate={required} />
                 </div>
-
+                <div className="row">
+                    <Field
+                        className="col"
+                        component={renderInputField}
+                        name='zip'
+                        type='text'
+                        label='Zip Code'
+                        onChange={this.getZipDetails}
+                        validate={required}
+                    />
+                    <Field
+                        className="col"
+                        component={renderInputField}
+                        name='district'
+                        type='text'
+                        label='District'
+                        validate={required} />
+                    <div>
+                        <label>State:</label>
+                        <div  >
+                            <Field
+                                className="col"
+                                component="select"
+                                name="stateName"
+                            >
+                                <option value="">Select a state...</option>
+                                {statesLists.map(state =>
+                                    <option value={state}>{state}</option>
+                                )}
+                            </Field>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

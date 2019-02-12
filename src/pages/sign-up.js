@@ -10,9 +10,12 @@ class SignUp extends Component {
 
     render() {
         return (
-            <form>
-            <AddressContainer 
-            routeToConfirm={this.routeToConfirm}/>
+            <form className="py-lg-3">
+            <AddressContainer />
+             <div className="App py-lg-3">
+                    <button  onClick={this.routeToConfirm} className="btn btn-primary"
+                        >Sign Up</button>
+                </div>
             </form>
         )
     }
