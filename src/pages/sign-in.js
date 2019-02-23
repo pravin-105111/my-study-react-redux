@@ -14,8 +14,8 @@ class SignIn extends Component {
     render() {
         return (
             <form>
-                <div>
-                    <div className="col">
+                <div className="App">
+                    <div className="form-group">
                         <Field
                             component={renderInputField}
                             name="username"
