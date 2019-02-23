@@ -18,7 +18,6 @@ export default class RenderSelect extends Component {
     render() {
         const { selectedOption } = this.state;
         let {options, label, meta: { touched, error, warning } } = this.props;
-        console.log('state neme====',touched,error, label)
         return (
             <div>
                 <label>{label}</label>

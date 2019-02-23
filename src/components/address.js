@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
 import { required, renderInputField } from '../components/form/pk-form';
-//import RenderSelect from '../components/form/render-select';
 import { statesLists } from '../util/state-city-constant';
 
 class Address extends Component {
@@ -23,9 +22,6 @@ class Address extends Component {
     }
 
     render() {
-        //let { zipCode, locationState, city } = this.props;
-        //let isEnabled = zipCode && zipCode.length > 5 && locationState && city;
-
         return (
             <div className="container">
                 <div className="row">
