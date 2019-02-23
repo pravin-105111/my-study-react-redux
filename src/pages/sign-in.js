@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Field, reduxForm} from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
+import { required, renderInputField } from '../components/form/pk-form';
 
 class SignIn extends Component {
     routeToInfo = () => {
@@ -13,35 +14,32 @@ class SignIn extends Component {
     render() {
         return (
             <form>
-            <div className="App">
-            <div>
-                <label>Username:</label>
-                <div>
-                    <Field 
-                    component="input"
-                    name="username"
-                    type="text"
-                    placeholder="username"
-                    />
+                <div className="App">
+                    <div className="form-group">
+                        <Field
+                            component={renderInputField}
+                            name="username"
+                            type="text"
+                            label="Username"
+                            validate={required}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <Field
+                            component={renderInputField}
+                            name="password"
+                            label="Password"
+                            type="password"
+                            validate={required}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <button onClick={this.routeToInfo} className="btn btn-primary">Login</button>
+                    </div>
+                    <div className="form-group">
+                        <button onClick={this.routeToSignUp} className="btn btn-primary">Sign Up</button>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label>Password:</label>
-                <div>
-                    <Field 
-                    component="input"
-                    name="password"
-                    type="password"
-                    />
-                </div>
-            </div>
-                <div>
-                    <button onClick={this.routeToInfo}>Login</button>
-                </div>
-                <div>
-                    <button onClick={this.routeToSignUp}>Sign Up</button>
-                </div>
-            </div>
             </form>
         )
     }
