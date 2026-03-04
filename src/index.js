@@ -11,6 +11,7 @@ import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 import SignUpConfirm from './pages/sign-up-confirm';
 import Info from './pages/info';
+//test
 
 ReactDOM.render(
     <Provider store={store}>
